@@ -19,7 +19,7 @@ def dequeue():
 
     # removing elements from the queue
     print("\n2 Elements dequeued")
-    print(q.popleft())
+    node = q.popleft()
     print(q.popleft())
     # print(q.popleft())
 
