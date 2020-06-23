@@ -47,6 +47,30 @@ class Solution:
         root_node.right = self.create_bst_helper(nums, mid+1, end)
 
         return root_node
+    
+    def print_bst(self, root):
+        
+        global count
+        count = [10]
+        def print_helper(root,space):
+            if root is None:
+                return
+            global count
+            space += count[0]
+
+            print_helper(root.right, space)
+            print()
+
+            for i in range(count[0], space):
+                print(end=" ")
+            print(root.data)
+
+            print_helper(root.left, space)
+        # give the starting space as 0
+        print_helper(root,0)
+
 
 obj = Solution()        
-print(obj.create_bst(nums))
+bst_tree = obj.create_bst(nums)
+# print the created tree
+obj.print_bst(bst_tree)
