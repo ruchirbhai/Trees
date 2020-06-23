@@ -19,6 +19,9 @@
 
 from collections import deque
 
+global height 
+height = 0
+
 class TreeNode:
     def __init__(self, key):
         """
@@ -67,6 +70,18 @@ class Solution:
             result.append(tmp)
         
         return result
+    
+
+    def nary_height(self, root):
+        if root is None:
+            return 0
+            
+        
+        height = 0
+        for child in root.children:
+            height = max(height, self.nary_height(child))
+        
+        return height + 1
 
 
 #driver program for the above function
@@ -83,3 +98,4 @@ root.children[0].add_child(6)
 obj = Solution()
 #now call the class methos with the needed arguments
 print(obj.n_ary_tree(root))
+print(obj.nary_height(root))
